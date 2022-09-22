@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 
 // Check for unix Socket. If not found then process exit and log the error.
-if (!process || !process.env || !process.env.GITSHACK_SOCKET) {
+if (!process || !process.env || !process.env.APP_SOCKET) {
     console.error('No Process Socket Specified');
     process.exit(1);
 }
