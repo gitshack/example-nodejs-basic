@@ -34,7 +34,7 @@ try {
 
 http.createServer(function (req, res) {
     res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.end('Hello World!');
+    res.end('Node - Hello World!');
 }).listen(process.env.GITSHACK_SOCKET, 'localhost', function(){
     fs.chmodSync(process.env.GITSHACK_SOCKET, '777');
     console.log('Update Socket Permissions');
