@@ -24,8 +24,8 @@ process.on('SIGINT', signal => {
 
 // Since we are listening on a unix socket we need to flush it on restarts.
 try {
-    if (fs.existsSync(process.env.GITSHACK_SOCKET)) {
-        fs.unlinkSync(process.env.GITSHACK_SOCKET);
+    if (fs.existsSync(process.env.APP_SOCKET)) {
+        fs.unlinkSync(process.env.APP_SOCKET);
         console.log('Removed Socket');
     }
 } catch(err) {
@@ -35,7 +35,7 @@ try {
 http.createServer(function (req, res) {
     res.writeHead(200, {'Content-Type': 'text/plain'});
     res.end('Hello World!');
-}).listen(process.env.GITSHACK_SOCKET, 'localhost', function(){
-    fs.chmodSync(process.env.GITSHACK_SOCKET, '777');
+}).listen(process.env.APP_SOCKET, 'localhost', function(){
+    fs.chmodSync(process.env.APP_SOCKET, '777');
     console.log('Update Socket Permissions');
 });
